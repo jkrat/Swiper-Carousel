@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Swiper from 'react-id-swiper';
-import { Navigation, Controller } from 'swiper/dist/js/swiper.esm';
+// import { Navigation, Controller } from 'swiper/dist/js/swiper.esm';
 import { makeStyles } from '@material-ui/styles';
 
-import '../../node_modules/swiper/dist/css/swiper.min.css';
+import '../../../node_modules/react-id-swiper/lib/styles/css/swiper.css';
 
 const useStyles = makeStyles({
   container: {
@@ -56,7 +56,7 @@ const FunctionalThumbs = ({ items }) => {
   const [swiperThumbs, updateSwiperThumbs] = useState(null);
 
   let params = {
-    modules: [Controller, Navigation],
+    // modules: [Controller, Navigation],
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
@@ -66,7 +66,7 @@ const FunctionalThumbs = ({ items }) => {
     getSwiper: updateSwiper
   };
   let thumbsParams = {
-    modules: [Controller],
+    // modules: [Controller],
     slideToClickedSlide: true,
     slidesPerView: 'auto',
     centeredSlides: true,

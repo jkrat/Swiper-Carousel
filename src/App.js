@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Swiper from './swiper';
-import FunctionalThumbs from './swiper/FunctionalThumbs';
+import Swiper from './components/swiper';
+import FunctionalThumbs from './components/swiper/FunctionalThumbs';
 import RecipeReviewCard from './components/Card';
 
 function App() {
@@ -32,7 +32,6 @@ function App() {
       <div style={{ height: 100, backgroundColor: 'green' }} />
       <Swiper items={getCards(8)} />
       <div style={{ height: 100, backgroundColor: 'green' }} />
-      
     </div>
   );
 }

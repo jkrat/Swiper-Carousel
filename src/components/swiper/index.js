@@ -2,7 +2,7 @@ import React from 'react';
 import Swiper from 'react-id-swiper';
 import { makeStyles } from '@material-ui/styles';
 
-import '../../node_modules/swiper/dist/css/swiper.min.css';
+import '../../../node_modules/react-id-swiper/lib/styles/css/swiper.css';
 
 const useStyles = makeStyles({
   container: {
