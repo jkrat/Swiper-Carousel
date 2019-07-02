@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Header from './Header';
 import Swiper from './swiper';
@@ -27,7 +26,5 @@ const Dashboard = () => {
     </div>
   );
 };
-
-Dashboard.propTypes = {};
 
 export default Dashboard;
