@@ -34,10 +34,6 @@ const useStyles = makeStyles({
     },
     marginBottom: 5
   },
-  topContainer: {
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  },
   thumbContainer: {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -68,10 +64,7 @@ const FunctionalThumbs = ({ items }) => {
     slidesPerView: 'auto',
     centeredSlides: true,
     spaceBetween: 10,
-    getSwiper: updateSwiperThumbs, // Get swiper instance callback
-    style: {
-      width: '100px'
-    }
+    getSwiper: updateSwiperThumbs // Get swiper instance callback
   };
 
   // Bind swiper and swiper thumbs

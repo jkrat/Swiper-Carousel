@@ -4,6 +4,7 @@ import Header from './Header';
 import Swiper from './swiper';
 import FunctionalThumbs from './swiper/FunctionalThumbs';
 import BlurredLoadingContainer from './progressiveLoading/BlurredLoadingContainer';
+import ProgressiveThumbsContainer from './progressiveLoading/ProgressiveThumbsContainer';
 import { getCards, getImages } from '../helpers';
 
 const useStyles = makeStyles(theme => ({
@@ -33,6 +34,7 @@ const Dashboard = () => {
       {tab === 0 && <Swiper items={getCards(8)} />}
       {tab === 1 && <FunctionalThumbs items={getImages(8)} />}
       {tab === 2 && <BlurredLoadingContainer width={600} />}
+      {tab === 3 && <ProgressiveThumbsContainer />}
     </div>
   );
 };

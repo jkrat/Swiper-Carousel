@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 
@@ -8,7 +9,7 @@ const useStyles = makeStyles({
     position: 'relative',
     height: 0,
     overflow: 'hidden',
-    paddingBottom: ratio => `calc(100%/(${ratio}))`,
+    paddingBottom: 'calc(100%/(12/9))',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -30,8 +31,13 @@ const useStyles = makeStyles({
   }
 });
 
-const ProgressiveLoading = ({ src, placeholder, altText = '', ratio }) => {
-  const classes = useStyles(ratio);
+const ProgressiveLoading = ({
+  src,
+  placeholder,
+  altText = '',
+  ratio = '16/9'
+}) => {
+  const classes = useStyles();
   const [loaded, setLoaded] = useState(false);
 
   function handleImageLoad() {
@@ -57,6 +63,13 @@ const ProgressiveLoading = ({ src, placeholder, altText = '', ratio }) => {
       />
     </div>
   );
+};
+
+ProcessingInstruction.PropTypes = {
+  src: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  altText: PropTypes.string,
+  ratio: PropTypes.string
 };
 
 export default ProgressiveLoading;

@@ -6,13 +6,13 @@ import ProgressiveLoading from '.';
 const useStyles = makeStyles({
   imageContainer: {
     margin: '100px auto',
-    width: props => props.width,
+    width: width => width,
     border: '1px solid black'
   }
 });
 
-const BlurredLoadingContainer = props => {
-  const classes = useStyles(props);
+const BlurredLoadingContainer = ({ width }) => {
+  const classes = useStyles(width);
   const [full, setFull] = useState('');
   const [thumb, setThumb] = useState('');
 
@@ -32,7 +32,12 @@ const BlurredLoadingContainer = props => {
   return (
     <div className={classes.imageContainer}>
       {' '}
-      <ProgressiveLoading src={full} placeholder={thumb} ratio="12/9" />
+      <ProgressiveLoading
+        src={full}
+        placeholder={thumb}
+        altText=""
+        ratio="12/9"
+      />
     </div>
   );
 };
