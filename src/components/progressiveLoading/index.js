@@ -1,26 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
-import axios from 'axios';
 
 const useStyles = makeStyles({
-  root: {
-    padding: 100
-  },
-  container: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  image: {
-    width: 600,
-    border: '1px solid black'
-  },
   ratioBox: {
     width: '100%',
     position: 'relative',
     height: 0,
     overflow: 'hidden',
-    paddingBottom: 'calc(100%/(12/9))',
+    paddingBottom: ratio => `calc(100%/(${ratio}))`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -42,54 +30,31 @@ const useStyles = makeStyles({
   }
 });
 
-const ProgressiveLoading = () => {
-  const classes = useStyles();
-  const [vehicle, setVehicle] = useState('');
-  const [full, setFull] = useState('');
-  const [thumb, setThumb] = useState('');
+const ProgressiveLoading = ({ src, placeholder, altText = '', ratio }) => {
+  const classes = useStyles(ratio);
   const [loaded, setLoaded] = useState(false);
 
   function handleImageLoad() {
     setLoaded(true);
   }
 
-  useEffect(() => {
-    async function fetchVehicle() {
-      const result = await axios(
-        'https://inventory.thirtysixteen.net/api/chaconautos/27089'
-      );
-      console.log(result.data);
-      setVehicle(result.data);
-      setFull(result.data.pictures[0].large);
-      setThumb(result.data.pictures[0].thumb);
-    }
-
-    fetchVehicle();
-  }, []);
-
   return (
-    <div className={classes.root}>
-      <div className={classes.container}>
-        <div className={classes.image}>
-          <div
-            className={classNames(classes.ratioBox, {
-              [classes.loaded]: loaded
-            })}
-            style={{
-              backgroundImage: `url(${thumb})`
-            }}
-          >
-            <img
-              src={full}
-              alt=""
-              onLoad={handleImageLoad}
-              className={classNames(classes.picture, {
-                [classes.loaded]: loaded
-              })}
-            />
-          </div>
-        </div>
-      </div>
+    <div
+      className={classNames(classes.ratioBox, {
+        [classes.loaded]: loaded
+      })}
+      style={{
+        backgroundImage: `url(${placeholder})`
+      }}
+    >
+      <img
+        src={src}
+        alt={altText}
+        onLoad={handleImageLoad}
+        className={classNames(classes.picture, {
+          [classes.loaded]: loaded
+        })}
+      />
     </div>
   );
 };

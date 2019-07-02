@@ -30,6 +30,7 @@ const Header = ({ value, switchTab }) => {
         >
           <Tab label="Simple Carousel" />
           <Tab label="Image Slider with Thumbs" />
+          <Tab label="Blurred Image Loader" />
           <Tab label="Lazy Loading Carousel" />
         </Tabs>
       </Paper>
