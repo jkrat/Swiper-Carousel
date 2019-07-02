@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   }
 });
 
-const FunctionalThumbs = ({ items }) => {
+const ProgressiveThumbs = ({ items }) => {
   const classes = useStyles();
 
   const [swiper, updateSwiper] = useState(null);
@@ -109,4 +109,4 @@ const FunctionalThumbs = ({ items }) => {
   );
 };
 
-export default FunctionalThumbs;
+export default ProgressiveThumbs;
