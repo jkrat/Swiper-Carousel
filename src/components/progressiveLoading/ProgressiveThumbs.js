@@ -9,24 +9,15 @@ import '../../../node_modules/react-id-swiper/lib/styles/css/swiper.css';
 const useStyles = makeStyles({
   container: {
     padding: '1rem',
-    maxWidth: 1000,
-    height: 500,
+    maxWidth: 800,
     margin: 'auto'
   },
   galleryTop: {
-    height: '80%',
-    width: '100%',
-    '& .swiper-container': {
-      height: '100%',
-      width: '100%'
-    },
     marginBottom: 5
   },
   galleryThumbs: {
-    height: '20%',
-    width: '100%',
     '& .swiper-container': {
-      height: '100%',
+      height: 90,
       width: '100%',
       '& .swiper-wrapper': {
         '& .swiper-slide-active': {
@@ -36,19 +27,21 @@ const useStyles = makeStyles({
     },
     marginBottom: 5
   },
+  ratioBox: {
+    width: '100%',
+    position: 'relative',
+    height: 0,
+    overflow: 'hidden',
+    paddingBottom: 'calc(100%/(12/9))',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'
+  },
   thumbContainer: {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: '25%',
-    hieght: '100%',
     opacity: 0.4
-  },
-  ratioBox: {
-    width: '100%',
-    position: 'relative',
-    // height: 0,
-    overflow: 'hidden'
-    // paddingBottom: 'calc(100%/(16/9))'
   },
   picture: {
     position: 'absolute',
@@ -75,7 +68,7 @@ const ProgressiveThumbs = ({ pictures = [], vehicleName }) => {
   const [swiperThumbs, updateSwiperThumbs] = useState(null);
 
   let params = {
-    lazy: true,
+    // lazy: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
@@ -105,13 +98,19 @@ const ProgressiveThumbs = ({ pictures = [], vehicleName }) => {
       <div className={classes.galleryTop}>
         <Swiper {...params}>
           {items.map((item, idx) => (
-            <div className={classes.ratioBox} key={`slide_${idx}`}>
+            <div
+              className={classes.ratioBox}
+              key={`slide_${idx}`}
+              style={{
+                backgroundImage: `url(${item.thumbnail})`
+              }}
+            >
               <img
                 alt={item.originalAlt}
                 src={item.original}
                 className={classNames(classes.picture, 'swiper-lazy')}
               />
-              <div className="swiper-lazy-preloader" />
+              {/* <div className="swiper-lazy-preloader" /> */}
             </div>
           ))}
         </Swiper>

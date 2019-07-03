@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
   const classes = useStyles();
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(3);
 
   function handleSwitchTab(newValue) {
     setTab(newValue);
