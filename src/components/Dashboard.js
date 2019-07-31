@@ -29,7 +29,7 @@ const Dashboard = () => {
   return (
     <div className={classes.root}>
       <Header value={tab} switchTab={handleSwitchTab} />
-      <div style={{ height: 100, backgroundColor: 'green' }} />
+
       {tab === 0 && <Swiper items={getCards(8)} />}
       {tab === 1 && <SwiperThumbs items={getImages(8)} />}
       {tab === 2 && <BlurredLoadingContainer width={600} />}
