@@ -19,7 +19,7 @@ const BlurredLoadingContainer = ({ width }) => {
   useEffect(() => {
     async function fetchVehicle() {
       const result = await axios(
-        'https://inventory.thirtysixteen.net/api/chaconautos/27089'
+        'https://inventory.thirtysixteen.net/api/autousatexas/688'
       );
       console.log(result.data);
       setFull(result.data.pictures[0].large);
