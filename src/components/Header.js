@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginBottom: 20
   }
-});
+}));
 
 const Header = ({ value, switchTab }) => {
   const classes = useStyles();
@@ -19,19 +20,13 @@ const Header = ({ value, switchTab }) => {
   }
   return (
     <div className={classes.root}>
-      <Paper position="static">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-        >
+      <AppBar position="static">
+        <Tabs value={value} onChange={handleChange} variant="fullWidth">
           <Tab label="Simple Carousel" />
           <Tab label="Image Slider with Thumbs" />
           <Tab label="Blurred Image Loader" />
         </Tabs>
-      </Paper>
+      </AppBar>
     </div>
   );
 };
