@@ -5,17 +5,16 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
     flexGrow: 1
   }
-}));
+});
 
 const Header = ({ value, switchTab }) => {
   const classes = useStyles();
 
   function handleChange(event, newValue) {
-    console.log(newValue);
     switchTab(newValue);
   }
   return (
@@ -31,7 +30,6 @@ const Header = ({ value, switchTab }) => {
           <Tab label="Simple Carousel" />
           <Tab label="Image Slider with Thumbs" />
           <Tab label="Blurred Image Loader" />
-          <Tab label="Lazy Loading Carousel" />
         </Tabs>
       </Paper>
     </div>

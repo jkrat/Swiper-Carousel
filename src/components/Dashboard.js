@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Header from './Header';
 import Swiper from './swiper';
-import FunctionalThumbs from './swiper/FunctionalThumbs';
-import BlurredLoadingContainer from './progressiveLoading/BlurredLoadingContainer';
-import ProgressiveThumbsContainer from './progressiveLoading/ProgressiveThumbsContainer';
+import SwiperThumbs from './SwiperThumbs';
+import BlurredLoadingContainer from './BlurredLoadingContainer';
 import { getCards, getImages } from '../helpers';
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
   const classes = useStyles();
-  const [tab, setTab] = useState(3);
+  const [tab, setTab] = useState(0);
 
   function handleSwitchTab(newValue) {
     setTab(newValue);
@@ -32,9 +31,8 @@ const Dashboard = () => {
       <Header value={tab} switchTab={handleSwitchTab} />
       <div style={{ height: 100, backgroundColor: 'green' }} />
       {tab === 0 && <Swiper items={getCards(8)} />}
-      {tab === 1 && <FunctionalThumbs items={getImages(8)} />}
+      {tab === 1 && <SwiperThumbs items={getImages(8)} />}
       {tab === 2 && <BlurredLoadingContainer width={600} />}
-      {tab === 3 && <ProgressiveThumbsContainer />}
     </div>
   );
 };

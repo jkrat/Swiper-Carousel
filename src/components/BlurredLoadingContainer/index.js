@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import axios from 'axios';
-import ProgressiveLoading from '.';
+import ProgressiveLoading from '../progressiveLoading';
 
 const useStyles = makeStyles({
   imageContainer: {
